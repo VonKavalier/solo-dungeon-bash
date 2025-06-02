@@ -1,27 +1,22 @@
 # solo-dungeon-bash
 
 Un générateur de donjon infini en solo pour rôlistes solitaires.
-Chaque matin, recevez une nouvelle scène d’exploration, directement sur votre terminal ou via une notification grâce à [`ntfy`](https://ntfy.sh).
-
----
+Chaque matin, recevez une nouvelle scène d’exploration via une notification grâce à [`ntfy`](https://ntfy.sh).
 
 ## 🌀 Fonctionnalités
 
-- Génère événement dans un donjon mystérieux et infini
+- Génère des événements dans un donjon mystérieux et infini
 - Trois types de journées : **exploration**, **transition**, **contemplation**
 - Éléments narratifs variés : salles, ambiances, objets, mystères, etc.
 - Notifications automatiques via `ntfy`
-- Empêche les journées répétées du même type
 - Éditable facilement grâce à des fichiers de données externes (`.txt`)
-
----
 
 ## 🛠️ Installation
 
 ### 1. Cloner le dépôt
 
 ```bash
-git clone https://github.com/ton-utilisateur/solo-dungeon-bash.git
+git clone https://github.com/VonKavalier/solo-dungeon-bash.git
 cd solo-dungeon-bash
 ```
 
@@ -41,7 +36,6 @@ SAVE_FILE="$HOME/.dungeon_progress"
 LAST_TYPE_FILE="$HOME/.dungeon_last_type"
 DATA_DIR="./data"
 ```
----
 
 ## ⏰ Automatiser avec cron
 
@@ -59,20 +53,18 @@ Ajoutez cette ligne :
 
 🔔 Vous recevrez une notification avec l’événement du jour !
 
----
-
 ## 🧭 Exemple d'exploration
 
 ```
 🧭 JOURNÉE D'EXPLORATION 🧭
 
-📍 SALLE: Une galerie de portraits glacé·e par un froid pénétrant
+📍 SALLE: Un théâtre de marionnettes marqué·e par des traces de gel
 
-🎯 DÉFI: Vous découvrez des statues qui bougent quand on ne les regarde pas
-Vous remarquez également des masques expressifs
+🎯 DÉFI: Vous découvrez des portraits aux yeux qui suivent
+Vous remarquez également des pinceaux aux poils dorés
 
-🔍 INDICE D’AUTRES AVENTURIERS: Vous remarquez des marques de griffes sur les murs
-🎲 TAUX DE RÉUSSITE: 60%
+❓ MYSTÈRE: Vous découvrez des cercueils vides aux couvercles brisés
+🎲 TAUX DE RÉUSSITE: 37%
 
 💭 CONSIGNES:
 - Comment abordez-vous cette situation ?
@@ -84,14 +76,10 @@ Vous remarquez également des masques expressifs
 📝 Bonne exploration, aventurier !
 ```
 
----
-
 ## 🧠 Licence
 
 Ce projet est libre sous licence MIT.
 Faites-en ce que vous voulez, améliorez-le, partagez-le — explorez librement !
-
----
 
 ## 💬 Remerciements
 
