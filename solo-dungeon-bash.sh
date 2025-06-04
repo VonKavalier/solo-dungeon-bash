@@ -1,12 +1,16 @@
 #!/bin/bash
 
-# === Configuration ===
-NTFY_TOPIC="insert_topic_name_here"
-NTFY_SERVER="https://ntfy.sh"
-NTFY_TOKEN="insert_token_here"
-SAVE_FILE="$HOME/.dungeon_progress"
-LAST_TYPE_FILE="$HOME/.dungeon_last_type"
-DATA_DIR="./data"
+# === Chargement de la configuration ===
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+CONFIG_FILE="$SCRIPT_DIR/config.sh"
+
+if [ ! -f "$CONFIG_FILE" ]; then
+  echo "Erreur: Le fichier de configuration '$CONFIG_FILE' n'existe pas."
+  echo "Copiez 'config.example.sh' vers 'config.sh' et remplissez vos informations."
+  exit 1
+fi
+
+source "$CONFIG_FILE"
 
 # === Initialisation ===
 initialize_day_counter() {
@@ -26,6 +30,12 @@ load_array() {
 }
 
 load_arrays() {
+  # Vérifier que le dossier data existe
+  if [ ! -d "$DATA_DIR" ]; then
+    echo "Erreur: Le dossier de données '$DATA_DIR' n'existe pas."
+    exit 1
+  fi
+
   load_array $DATA_DIR/rooms.txt ROOMS
   load_array $DATA_DIR/atmospheres.txt ATMOSPHERES
   load_array $DATA_DIR/threats.txt THREATS
@@ -40,36 +50,91 @@ load_arrays() {
 }
 
 # === Types de journées ===
+update_type_history() {
+  local new_type=$1
+  local last_type=""
+  local consecutive_count=1
+
+  if [ -f "$LAST_TYPE_FILE" ]; then
+    last_type=$(head -n1 "$LAST_TYPE_FILE")
+    consecutive_count=$(tail -n1 "$LAST_TYPE_FILE" 2>/dev/null || echo "1")
+  fi
+
+  # Si même type que précédent, incrémenter le compteur
+  if [ "$new_type" = "$last_type" ]; then
+    consecutive_count=$((consecutive_count + 1))
+  else
+    consecutive_count=1
+  fi
+
+  # Sauvegarder le nouveau type et le compteur
+  echo "$new_type" > "$LAST_TYPE_FILE"
+  echo "$consecutive_count" >> "$LAST_TYPE_FILE"
+}
+
+# === Types de journées avec système narratif ===
 determine_day_type() {
   CONTEMPLATIVE_DAY=false
   TRANSITION_DAY=false
   EXPLORATION_DAY=false
 
   local last_type=""
+  local consecutive_count=1
+
+  # Lire l'historique des derniers types
   if [ -f "$LAST_TYPE_FILE" ]; then
-    last_type=$(cat "$LAST_TYPE_FILE")
+    last_type=$(head -n1 "$LAST_TYPE_FILE")
+    consecutive_count=$(tail -n1 "$LAST_TYPE_FILE" 2>/dev/null || echo "1")
   fi
 
-  for attempt in {1..10}; do
-    local type=$((RANDOM % 100))
-    if [ $type -lt 25 ] && [ "$last_type" != "contemplative" ]; then
+  # Logique narrative
+
+  # Règle 1: Après 3 explorations consécutives → FORCER contemplation
+  if [ "$last_type" = "exploration" ] && [ $consecutive_count -ge 3 ]; then
+    CONTEMPLATIVE_DAY=true
+    update_type_history "contemplative"
+    return
+  fi
+
+  # Règle 2: Après 2 explorations → favoriser fortement contemplation (70%)
+  if [ "$last_type" = "exploration" ] && [ $consecutive_count -eq 2 ]; then
+    if [ $((RANDOM % 100)) -lt 70 ]; then
       CONTEMPLATIVE_DAY=true
-      echo "contemplative" > "$LAST_TYPE_FILE"
-      return
-    elif [ $type -lt 45 ] && [ "$last_type" != "transition" ]; then
-      TRANSITION_DAY=true
-      echo "transition" > "$LAST_TYPE_FILE"
-      return
-    else
-      EXPLORATION_DAY=true
-      echo "exploration" > "$LAST_TYPE_FILE"
+      update_type_history "contemplative"
       return
     fi
-  done
+  fi
 
-  # fallback
-  EXPLORATION_DAY=true
-  echo "exploration" > "$LAST_TYPE_FILE"
+  # Règle 3: Après contemplation → favoriser transition (60%)
+  if [ "$last_type" = "contemplative" ]; then
+    if [ $((RANDOM % 100)) -lt 60 ]; then
+      TRANSITION_DAY=true
+      update_type_history "transition"
+      return
+    fi
+  fi
+
+  # Règle 4: Après transition → favoriser exploration (80%)
+  if [ "$last_type" = "transition" ]; then
+    if [ $((RANDOM % 100)) -lt 80 ]; then
+      EXPLORATION_DAY=true
+      update_type_history "exploration"
+      return
+    fi
+  fi
+
+  # Règles par défaut (équilibrées)
+  local type=$((RANDOM % 100))
+  if [ $type -lt 40 ]; then
+    EXPLORATION_DAY=true
+    update_type_history "exploration"
+  elif [ $type -lt 70 ]; then
+    TRANSITION_DAY=true
+    update_type_history "transition"
+  else
+    CONTEMPLATIVE_DAY=true
+    update_type_history "contemplative"
+  fi
 }
 
 # === Génération des journées ===
@@ -154,7 +219,7 @@ $narrative
 # === Notification ===
 send_notification() {
   curl -s \
-    -H "Title: 🏰 Nouvelle Salle - Jour $DAY" \
+    -H "Title: 🏰 Solo Dungeon Bash - Jour $DAY" \
     -H "Priority: default" \
     -H "Tags: game,rpg,writing" \
     -H "Authorization: Bearer $NTFY_TOKEN" \

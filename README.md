@@ -29,12 +29,11 @@ chmod +x solo-dungeon-bash.sh
 ### 3. Renseigner les variables d'environnement
 
 ```bash
-NTFY_TOPIC="insert_topic_name_here"
-NTFY_SERVER="https://ntfy.sh"
-NTFY_TOKEN="insert_token_here"
-SAVE_FILE="$HOME/.dungeon_progress"
-LAST_TYPE_FILE="$HOME/.dungeon_last_type"
-DATA_DIR="./data"
+# 1. Copier le fichier d'exemple
+cp config.example.sh config.sh
+
+# 2. Éditer avec vos vraies valeurs
+nano config.sh
 ```
 
 ## ⏰ Automatiser avec cron
