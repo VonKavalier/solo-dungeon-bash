@@ -175,7 +175,7 @@ $ambiance, $prompt
 - Explorez vos pensées pendant ce déplacement
 
 ⏱️ Temps d'écriture: 3-8 minutes
-🏰 Poursuivez votre chemin, aventurier."
+🗺️ Poursuivez votre chemin, aventurier."
 }
 
 generate_exploration_day() {
@@ -204,6 +204,7 @@ generate_exploration_day() {
 Vous remarquez également $object
 
 $narrative
+
 🎲 TAUX DE RÉUSSITE: $success%
 
 💭 CONSIGNES:

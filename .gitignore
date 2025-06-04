@@ -1,6 +1,6 @@
 # Configuration avec informations sensibles
 config.sh
 
-# Fichiers de progression (optionnel, selon vos préférences)
+# Fichiers de progression
 .dungeon_progress
 .dungeon_last_type
