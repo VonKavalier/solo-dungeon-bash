@@ -1,5 +1,20 @@
 #!/bin/bash
 
+readonly_mode=false
+manual_seed=""
+
+# Parsing des arguments
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --seed)
+      shift
+      manual_seed="$1"
+      readonly_mode=true
+      ;;
+  esac
+  shift
+done
+
 # === Chargement de la configuration ===
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 CONFIG_FILE="$SCRIPT_DIR/config.sh"
@@ -19,7 +34,12 @@ initialize_day_counter() {
   fi
   DAY=$(cat "$SAVE_FILE")
   SEED=$(date +%Y%m%d)
-  RANDOM=$SEED
+  if [[ -n "$manual_seed" ]]; then
+    echo "Manual seed: $manual_seed"
+    RANDOM=$manual_seed
+  else
+    RANDOM=$SEED
+  fi
 }
 
 # === Données ===
@@ -68,8 +88,10 @@ update_type_history() {
   fi
 
   # Sauvegarder le nouveau type et le compteur
-  echo "$new_type" > "$LAST_TYPE_FILE"
-  echo "$consecutive_count" >> "$LAST_TYPE_FILE"
+  if [[ "$readonly_mode" = false ]]; then
+    echo "$new_type" > "$LAST_TYPE_FILE"
+    echo "$consecutive_count" >> "$LAST_TYPE_FILE"
+  fi
 }
 
 # === Types de journées avec système narratif ===
@@ -88,6 +110,14 @@ determine_day_type() {
   fi
 
   # Logique narrative
+
+  # Règle spéciale: Rencontre très rare (8% de chance)
+  # Exception: pas de rencontre si la dernière était une rencontre
+#  if [ "$last_type" != "encounter" ] && [ $((RANDOM % 100)) -lt 8 ]; then
+#    ENCOUNTER_DAY=true
+#    update_type_history "encounter"
+#    return
+#  fi
 
   # Règle 1: Après 3 explorations consécutives → FORCER contemplation
   if [ "$last_type" = "exploration" ] && [ $consecutive_count -ge 3 ]; then
@@ -217,6 +247,23 @@ $narrative
 📝 Bonne exploration, aventurier !"
 }
 
+generate_encounter_day() {
+  # Fonction à implémenter pour les rencontres
+  local npc="${NPCS[$RANDOM % ${#NPCS[@]}]}"
+  local situation="${ENCOUNTER_SITUATIONS[$RANDOM % ${#ENCOUNTER_SITUATIONS[@]}]}"
+  MESSAGE="🤝 JOURNÉE DE RENCONTRE 🤝
+
+Vous rencontrez $npc
+
+📝 CONSIGNES:
+- Développez l'interaction avec ce personnage
+- Explorez ses motivations et les vôtres
+- Que révèle cette rencontre sur votre quête ?
+
+⏱️ Temps d'écriture: 5-10 minutes
+👥 Une rencontre inattendue, aventurier."
+}
+
 # === Notification ===
 send_notification() {
   curl -s \
@@ -238,13 +285,18 @@ main() {
     generate_contemplative_day
   elif [ "$TRANSITION_DAY" = true ]; then
     generate_transition_day
+  elif [ "$ENCOUNTER_DAY" = true ]; then
+    generate_encounter_day
   else
     generate_exploration_day
   fi
-
-  #echo "$MESSAGE"
-  send_notification
-  echo $((DAY + 1)) > "$SAVE_FILE"
+  
+  if [[ "$readonly_mode" = false ]]; then
+    send_notification
+    echo $((DAY + 1)) > "$SAVE_FILE"
+  else
+    echo "$MESSAGE"
+  fi
 }
 
 main "$@"
