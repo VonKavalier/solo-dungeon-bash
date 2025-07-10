@@ -67,6 +67,9 @@ load_arrays() {
   load_array $DATA_DIR/transition_moments.txt TRANSITION_MOMENTS
   load_array $DATA_DIR/transition_ambiances.txt TRANSITION_AMBIANCES
   load_array $DATA_DIR/transition_prompts.txt TRANSITION_PROMPTS
+  load_array $DATA_DIR/npcs.txt NPCS
+  load_array $DATA_DIR/encounter_situations.txt ENCOUNTER_SITUATIONS
+  load_array $DATA_DIR/npc_motivations.txt NPC_MOTIVATIONS
 }
 
 # === Types de journées ===
@@ -113,11 +116,11 @@ determine_day_type() {
 
   # Règle spéciale: Rencontre très rare (8% de chance)
   # Exception: pas de rencontre si la dernière était une rencontre
-#  if [ "$last_type" != "encounter" ] && [ $((RANDOM % 100)) -lt 8 ]; then
-#    ENCOUNTER_DAY=true
-#    update_type_history "encounter"
-#    return
-#  fi
+  if [ "$last_type" != "encounter" ] && [ $((RANDOM % 100)) -lt 8 ]; then
+    ENCOUNTER_DAY=true
+    update_type_history "encounter"
+    return
+  fi
 
   # Règle 1: Après 3 explorations consécutives → FORCER contemplation
   if [ "$last_type" = "exploration" ] && [ $consecutive_count -ge 3 ]; then
@@ -251,9 +254,13 @@ generate_encounter_day() {
   # Fonction à implémenter pour les rencontres
   local npc="${NPCS[$RANDOM % ${#NPCS[@]}]}"
   local situation="${ENCOUNTER_SITUATIONS[$RANDOM % ${#ENCOUNTER_SITUATIONS[@]}]}"
+  local motivation="${NPC_MOTIVATIONS[$RANDOM % ${#NPC_MOTIVATIONS[@]}]}"
   MESSAGE="🤝 JOURNÉE DE RENCONTRE 🤝
 
-Vous rencontrez $npc
+Alors que vous progressez dans le donjon, $situation.
+Vous découvrez $npc.
+Cette personne $motivation.
+Cette rencontre inattendue apporte une bouffée d'humanité dans ces couloirs solitaires.
 
 📝 CONSIGNES:
 - Développez l'interaction avec ce personnage
