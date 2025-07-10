@@ -40,3 +40,20 @@ Vous nettoyez vos bottes souillées
 Vous vérifiez l'état de vos gants
 Vous respirez profondément pour vous calmer
 Vous écrivez quelques mots dans votre carnet
+Vous examinez les symboles gravés sur les murs
+Vous cherchez des traces de pièges ou de mécanismes cachés
+Vous essayez de déchiffrer les écritures anciennes
+Vous faites un bilan de vos compétences et de vos faiblesses
+Vous vous demandez si vous êtes vraiment prêt pour cette aventure
+Vous vous arrêtez pour écouter les sons de la nature à l'extérieur
+Vous vous interrogez sur l'histoire du donjon et de ses anciens occupants
+Vous vérifiez l'état de vos chaussures et de vos vêtements
+Vous vous préparez à affronter vos peurs et vos angoisses
+Vous observez les mouvements des ombres et de la lumière
+Vous cherchez des indices sur la présence de créatures ou de monstres
+Vous réfléchissez à la manière de vous échapper si nécessaire
+Vous vous arrêtez pour apprécier la beauté de votre environnement
+Vous vérifiez l'état de vos potions et de vos remèdes
+Vous vous demandez si vous avez oublié quelque chose d'important
+Vous faites un plan pour vous protéger en cas d'attaque
+Vous écrivez une lettre à quelqu'un que vous aimez, au cas où

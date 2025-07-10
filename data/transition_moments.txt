@@ -29,3 +29,34 @@ Vous grimpez une rampe en spirale qui vous fait perdre l'orientation
 Vous traversez une passerelle suspendue au-dessus du vide
 Vous rampez dans un conduit juste assez large pour votre corps
 Vous empruntez un chemin pavé de symboles qui s'effacent à votre passage
+Vous parcourez un long couloir sinueux en pierre froide.  
+Vous descendez un escalier en colimaçon, usé par le temps.  
+Vous traversez une série de salles vides, ornées de toiles d'araignées.  
+Vous suivez un passage étroit, éclairé par des torches vacillantes.  
+Vous marchez dans un tunnel dont les murs sont couverts de mousse.  
+Vous progressez dans un couloir aux portes en bois massives, toutes fermées.  
+Vous empruntez un chemin qui semble se répéter, avec des marques sur les murs.  
+Vous avancez dans un passage où le bruit de l'eau qui goutte résonne.  
+Vous cheminez dans un corridor aux proportions étranges, où l'écho déforme les sons.  
+Vous suivez une galerie où des chaînes rouillées pendent du plafond.  
+Vous traversez une zone de transition, avec des fresques anciennes sur les murs.  
+Vous progressez dans un espace sombre, où l'air est lourd et humide.  
+Vous grimpez une rampe en pierre, glissante et difficile.  
+Vous traversez une passerelle en bois, craquant sous vos pas.  
+Vous rampez dans un conduit étroit, à peine assez large pour passer.  
+Vous longez un mur de pierre, où des inscriptions anciennes sont gravées.  
+Vous descendez des marches irrégulières, taillées à la hâte.  
+Vous suivez un sentier de dalles inégales, certaines fissurées.  
+Vous progressez dans un tunnel où des bruits de pas résonnent au loin.  
+Vous empruntez une galerie qui se rétrécit, rendant la progression difficile.  
+Vous avancez sur un sol en terre battue, parsemé de débris.  
+Vous traversez une enfilade de seuils, chacun menant à une obscurité profonde.  
+Vous cheminez dans un passage où des ombres semblent se mouvoir.  
+Vous suivez un couloir dont les murs sont marqués par des griffures.  
+Vous progressez dans un tunnel où des torches s'éteignent à votre passage.  
+Vous empruntez un chemin pavé de pierres anciennes, usées par le temps.  
+Vous avancez dans un corridor où chaque section semble plus sombre que la précédente.  
+Vous grimpez une rampe en pierre, avec des marches inégales et glissantes.  
+Vous traversez une salle où des statues de pierre vous observent silencieusement.  
+Vous rampez dans un conduit étroit, où l'air est frais et humide.  
+Vous suivez un chemin pavé de symboles oubliés, à peine visibles dans l'obscurité.

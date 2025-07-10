@@ -1,60 +1,60 @@
-un coffre orné
-des ossements étranges
-un autel de pierre
-des parchemins jaunis
-une épée plantée dans la roche
-un orbe flottant
-des chaînes brisées
-un grimoire ouvert
-une fontaine tarie
-des statues inquiétantes
-un brasero fumant
-des symboles gravés
-une table renversée
-des fioles colorées
-un miroir fendu
-un sablier qui coule vers le haut
-des cages vides suspendues
-un métier à tisser abandonné
-des instruments de musique silencieux
-une horloge aux aiguilles folles
-des cartes de territoires inconnus
-un fauteuil de velours rouge
-des outils d'orfèvre ternis
-une balance aux plateaux inégaux
-des masques expressifs
-un pupitre avec une partition inachevée
-des bocaux remplis d'yeux
-une armure vide qui semble respirer
-des livres aux pages blanches
-un télescope pointé vers le sol
-un candélabre à sept branches
-des dés sculptés dans l'os
-une harpe aux cordes cassées
-des fioles remplies de sable coloré
-un heaume décoré de plumes
-des cartes à jouer dispersées
-une boussole qui pointe vers le bas
-des clés sans serrures
-un encensoir qui fume encore
-des pièces de monnaie étrangères
-une couronne de fer tordue
-des lunettes aux verres opaques
-un parchemin avec une carte incomplète
-des bougies qui ne fondent jamais
-une canne surmontée d'un crâne
-des flacons d'encre de couleurs vives
-un échiquier aux pièces mélangées
-des plumes d'oiseaux inconnus
-un collier de perles noires
-des pinceaux aux poils dorés
-une bourse remplie de cailloux polis
-des aiguilles à tricoter en argent
-un carnet aux pages noircies
-des billes de verre multicolores
-une pipe sculptée dans l'ivoire
-des coquillages sans origine marine
-un sceptre brisé en deux
-des gants brodés de fils d'or
-une lanterne sans flamme
-des sachets d'herbes séchées
+un coffre orné de motifs anciens  
+des ossements étranges éparpillés  
+un autel de pierre usé par le temps  
+des parchemins jaunis par l'humidité  
+une épée plantée dans la roche, rouillée  
+un orbe flottant, émettant une lueur faible  
+des chaînes brisées, témoins d'une évasion  
+un grimoire ouvert sur une page mystérieuse  
+une fontaine tarie, couverte de mousse  
+des statues inquiétantes, figées dans des poses étranges  
+un brasero fumant, laissant échapper une odeur âcre  
+des symboles gravés sur les murs de pierre  
+une table renversée, couverte de débris  
+des fioles colorées, certaines brisées sur le sol  
+un miroir fendu, reflétant des images déformées  
+un sablier qui coule vers le haut, défiant la logique  
+des cages vides suspendues, témoins de captifs passés  
+un métier à tisser abandonné, poussiéreux et silencieux  
+des instruments de musique silencieux, oubliés  
+une horloge aux aiguilles folles, marquant un temps perdu  
+des cartes de territoires inconnus, jaunies et déchirées  
+un fauteuil de velours rouge, usé par le temps  
+des outils d'orfèvre ternis, laissés à l'abandon  
+une balance aux plateaux inégaux, rouillée  
+des masques expressifs, accrochés au mur  
+un pupitre avec une partition inachevée, jaunie  
+des bocaux remplis d'yeux flottants dans un liquide trouble  
+une armure vide qui semble respirer, comme si elle était habitée  
+des livres aux pages blanches, vierges de toute écriture  
+un télescope pointé vers le sol, comme s'il cherchait quelque chose  
+un candélabre à sept branches, éteint depuis longtemps  
+des dés sculptés dans l'os, usés par le temps  
+une harpe aux cordes cassées, silencieuse  
+des fioles remplies de sable coloré, scintillant légèrement  
+un heaume décoré de plumes, abandonné sur le sol  
+des cartes à jouer dispersées, témoins d'un jeu interrompu  
+une boussole qui pointe vers le bas, détraquée  
+des clés sans serrures, éparpillées sur une table  
+un encensoir qui fume encore, laissant échapper une odeur douce  
+des pièces de monnaie étrangères, oubliées dans un coin  
+une couronne de fer tordue, symbole d'un règne passé  
+des lunettes aux verres opaques, inutilisables  
+un parchemin avec une carte incomplète, griffonnée à la hâte  
+des bougies qui ne fondent jamais, immobiles  
+une canne surmontée d'un crâne, sinistre  
+des flacons d'encre de couleurs vives, renversés  
+un échiquier aux pièces mélangées, témoins d'une partie interrompue  
+des plumes d'oiseaux inconnus, éparpillées sur le sol  
+un collier de perles noires, scintillant dans l'ombre  
+des pinceaux aux poils dorés, oubliés dans un coin  
+une bourse remplie de cailloux polis, sans valeur apparente  
+des aiguilles à tricoter en argent, brillantes mais inutilisées  
+un carnet aux pages noircies, couvertes de notes illisibles  
+des billes de verre multicolores, éparpillées sur le sol  
+une pipe sculptée dans l'ivoire, ornée de motifs délicats  
+des coquillages sans origine marine, mystérieux  
+un sceptre brisé en deux, symbole d'un pouvoir perdu  
+des gants brodés de fils d'or, laissés à l'abandon  
+une lanterne sans flamme, éteinte depuis longtemps  
+des sachets d'herbes séchées, oubliés sur une étagère.
