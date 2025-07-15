@@ -116,7 +116,7 @@ determine_day_type() {
 
   # Règle spéciale: Rencontre très rare (8% de chance)
   # Exception: pas de rencontre si la dernière était une rencontre
-  if [ "$last_type" != "encounter" ] && [ $((RANDOM % 100)) -lt 8 ]; then
+  if [ "$last_type" != "encounter" ] && [ $((RANDOM % 100)) -lt 5 ]; then
     ENCOUNTER_DAY=true
     update_type_history "encounter"
     return
